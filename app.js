@@ -2,7 +2,7 @@ setInterval(() => { //ejecutar fecha cada segundo
     let fecha =new Date();
     const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
     const dias = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
-    const mes = meses[fecha,.getMonth()];
+    const mes = meses[fecha.getMonth()];
     const dia = dias[fecha.getDay()];
     const diaN = fecha.getDate();
     const horas = (String(fecha.getHours()).length == 2) ? fecha.getHours() : `0${fecha.getHours()}`;
