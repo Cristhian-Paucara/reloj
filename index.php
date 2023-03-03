@@ -38,6 +38,7 @@
         <div class="tb-header">Nombre</div>
         <div class="tb-header">Apellido</div>
         <div class="tb-header">Cargo</div>
+        L<?php $resultado = $db->query('select * from funcionarios');?>
         <div class="tb-item"></div>
         <div class="tb-item"></div>
         <div class="tb-item"></div>
