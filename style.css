@@ -149,4 +149,9 @@ body{
     }
   }
 
-
+/*DIEÑO TABLA*/
+.tabla{
+    width: 90%;
+    background: linear-gradient(to right,#240b36,#c31432);
+    color: #ffffff;
+}
