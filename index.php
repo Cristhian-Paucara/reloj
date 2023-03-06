@@ -1,6 +1,7 @@
 <?php
     include("conex.php");
     $funcionario = "select * from funcionarios";
+    //https://www.youtube.com/watch?v=S8LxTlAQmk4 ---> video referencia para proceso
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +39,18 @@
         <div class="tb-header">Nombre</div>
         <div class="tb-header">Apellido</div>
         <div class="tb-header">Cargo</div>
-        L<?php $resultado = $db->query('select * from funcionarios');?>
-        <div class="tb-item"></div>
-        <div class="tb-item"></div>
-        <div class="tb-item"></div>
-        <div class="tb-item"></div>
+        <br>
+        <?php 
+
+        $select = "select id,nombre,apellido,cargo from funcionarios";
+        $resultado = $db->query($select);
+        while($row = $resultado->fetchArray()){
+        ?>
+        <div class="tb-item"><?php echo $row["id"];?></div>
+        <div class="tb-item"><?php echo $row["nombre"];?></div>
+        <div class="tb-item"><?php echo $row["apellido"];?></div>
+        <div class="tb-item"><?php echo $row["cargo"];?></div><br>
+        <?php }?>
     </dvi>
     <script src="app.js"></script>
 </body>
