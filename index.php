@@ -25,12 +25,12 @@
     </div>
     <div class="boton">
         <li>
-            <a href="#"><span></span><span></span><span></span><span></span>SOFIA</a>
-            <a href="#"><span></span><span></span><span></span><span></span>WILSON</a>
-            <a href="#"><span></span><span></span><span></span><span></span>FREDDY</a>
-            <a href="#"><span></span><span></span><span></span><span></span>EDWIN</a>
-            <a href="#"><span></span><span></span><span></span><span></span>CARLA</a>
-            <a href="#"><span></span><span></span><span></span><span></span>CRISTHIAN</a>
+            <a type="submit" name="sofia" value="save"><span></span><span></span><span></span><span></span>SOFIA</a>
+            <a type="submit" name="wilson" value="save"><span></span><span></span><span></span><span></span>WILSON</a>
+            <a type="submit" name="freddy" value="save"><span></span><span></span><span></span><span></span>FREDDY</a>
+            <a type="submit" name="edwin" value="save"><span></span><span></span><span></span><span></span>EDWIN</a>
+            <a type="submit" name="carla" value="save"><span></span><span></span><span></span><span></span>CARLA</a>
+            <a type="submit" name="cristhian" value="save"><span></span><span></span><span></span><span></span>CRISTHIAN</a>
         </li>
     </div>
     <dvi class="tabla">
