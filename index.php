@@ -1,7 +1,42 @@
 <?php
     include("conex.php");
     if(isset($_POST["cristhian"])){
-        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (582427,'ENTRADA',	DATE('now'), '', 0, TIME())";
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (582427,'ENTRADA', DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }else if(isset($_POST["sofia"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (157,'ENTRADA', DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }else if(isset($_POST["wilson"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (343,'ENTRADA', DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }else if(isset($_POST["freddy"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (628,'ENTRADA', DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }else if(isset($_POST["edwin"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (458741,'ENTRADA', DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }else if(isset($_POST["carla"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (652986,'ENTRADA', DATE('now'), '', 0, TIME())";
         if($db->exec($insert)){
             echo '<script language="javascript">alert("insertado");</script>';
         }else{
@@ -49,7 +84,9 @@
         <div class="tb-header">Hora</div>
         <div class="tb-header">Justificacion</div>
         <?php 
-        $select = "select b.id,(select a.nombre from funcionarios a where a.id=b.id) as nombre,b.tipo,b.fecha,b.hora,b.justificativo from registros b";
+        $select = "select b.id,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
+        b.tipo,b.fecha,b.hora,b.justificativo from registros b
+        order by b.fecha desc, b.hora desc";
         $resultado = $db->query($select);
         while($row = $resultado->fetchArray()){
         ?>
