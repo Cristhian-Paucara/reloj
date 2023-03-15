@@ -30,7 +30,7 @@
             <p>00</p>
         </div>
     </div>
-    <form action="" metohd="post">
+    <form action="" method="post">
         <div class="boton">
                 <input type="submit" name="sofia" value="SOFIA">
                 <input type="submit" name="wilson" value="WILSON">
