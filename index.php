@@ -1,6 +1,13 @@
 <?php
     include("conex.php");
-    $funcionario = "select * from funcionarios";
+    if(isset($_POST["cristhian"])){
+        $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (582427,'ENTRADA',	DATE('now'), '', 0, TIME())";
+        if($db->exec($insert)){
+            echo '<script language="javascript">alert("insertado");</script>';
+        }else{
+            echo '<script language="javascript">alert("No insertado");</script>';
+        }
+    }
     //https://www.youtube.com/watch?v=S8LxTlAQmk4 ---> video referencia para proceso
 ?>
 
@@ -23,16 +30,16 @@
             <p>00</p>
         </div>
     </div>
-    <div class="boton">
-        <li>
-            <a type="submit" name="sofia" value="save"><span></span><span></span><span></span><span></span>SOFIA</a>
-            <a type="submit" name="wilson" value="save"><span></span><span></span><span></span><span></span>WILSON</a>
-            <a type="submit" name="freddy" value="save"><span></span><span></span><span></span><span></span>FREDDY</a>
-            <a type="submit" name="edwin" value="save"><span></span><span></span><span></span><span></span>EDWIN</a>
-            <a type="submit" name="carla" value="save"><span></span><span></span><span></span><span></span>CARLA</a>
-            <a type="submit" name="cristhian" value="save"><span></span><span></span><span></span><span></span>CRISTHIAN</a>
-        </li>
-    </div>
+    <form action="" metohd="post">
+        <div class="boton">
+                <input type="submit" name="sofia" value="SOFIA">
+                <input type="submit" name="wilson" value="WILSON">
+                <input type="submit" name="freddy" value="FREDDY">
+                <input type="submit" name="edwin" value="EDWIN">
+                <input type="submit" name="carla" value="CARLA">
+                <input type="submit" name="cristhian" value="CRISTHIAN">
+        </div>
+    </form>
     <dvi class="tabla">
         <div class="tb-title">Datos de Ingreso</div>
         <div class="tb-header">id</div>
