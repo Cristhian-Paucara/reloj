@@ -37,19 +37,21 @@
         <div class="tb-title">Datos de Ingreso</div>
         <div class="tb-header">id</div>
         <div class="tb-header">Nombre</div>
-        <div class="tb-header">Apellido</div>
-        <div class="tb-header">Cargo</div>
-        <br>
+        <div class="tb-header">Tipo Reg.</div>
+        <div class="tb-header">Fecha</div>
+        <div class="tb-header">Hora</div>
+        <div class="tb-header">Justificacion</div>
         <?php 
-
-        $select = "select id,nombre,apellido,cargo from funcionarios";
+        $select = "select b.id,(select a.nombre from funcionarios a where a.id=b.id) as nombre,b.tipo,b.fecha,b.hora,b.justificativo from registros b";
         $resultado = $db->query($select);
         while($row = $resultado->fetchArray()){
         ?>
         <div class="tb-item"><?php echo $row["id"];?></div>
         <div class="tb-item"><?php echo $row["nombre"];?></div>
-        <div class="tb-item"><?php echo $row["apellido"];?></div>
-        <div class="tb-item"><?php echo $row["cargo"];?></div><br>
+        <div class="tb-item"><?php echo $row["tipo"];?></div>
+        <div class="tb-item"><?php echo $row["fecha"];?></div>
+        <div class="tb-item"><?php echo $row["hora"];?></div>
+        <div class="tb-item"><?php echo $row["justificativo"];?></div>
         <?php }?>
     </dvi>
     <script src="app.js"></script>
