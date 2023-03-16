@@ -36,12 +36,12 @@
     </form>
     <dvi class="tabla">
         <div class="tb-title">Datos de Ingreso</div>
+        <div class="tb-header">Numero</div>
         <div class="tb-header">Nombre</div>
         <div class="tb-header">Tipo Reg.</div>
         <div class="tb-header">Fecha</div>
         <div class="tb-header">Hora</div>
         <div class="tb-header">Justificacion</div>
-        <div class="tb-header">A favor</div>
         <?php 
         $select = "select ROW_NUMBER () over () as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
         b.tipo,b.fecha,b.hora,b.justificativo from registros b 
