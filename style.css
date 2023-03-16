@@ -47,7 +47,7 @@ body{
 .boton input{
     /* transform: translate(0); */
     font-size: 15px;
-    background-color: #240b36;
+    background: linear-gradient(to right,#240b36,#c31432);
     color: #ffffff;
     font-weight: bold;
     /*text-decoration: none;*/

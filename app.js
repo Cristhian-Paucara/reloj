@@ -16,3 +16,7 @@ setInterval(() => { //ejecutar fecha cada segundo
     document.querySelector('#hora p:nth-child(2)').innerHTML = minutos;
     document.querySelector('#hora p:nth-child(3)').innerHTML = segundos;
 },100)
+
+
+
+
