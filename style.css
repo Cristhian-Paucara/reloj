@@ -28,9 +28,19 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 .reloj .hora p{
     font-size: 50px;
+    background-color: #240b36;
+    padding: 10px;
+    margin: 0px 5px;
+    border: 1px solid #ffffff;
+}
+.reloj input{
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 15px;
     background-color: #240b36;
     padding: 10px;
     margin: 0px 5px;

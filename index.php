@@ -15,16 +15,18 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="reloj">
-        <p class="dia" id="dia">--</p>
-        <p class="mes" id="mes">--</p>
-        <div class="hora" id="hora">
-            <p>00</p>
-            <p>00</p>
-            <p>00</p>
-        </div>
-    </div>
     <form action="" method="post">
+        <div class="reloj">
+            <p class="dia" id="dia">--</p>
+            <p class="mes" id="mes">--</p>
+            <div class="hora" id="hora">
+                <p>00</p>
+                <p>00</p>
+                <p>00</p>
+            </div>
+            <input type="text" name="justifi" placeholder = "Justificacion">
+        </div>
+    
         <div class="boton">
                 <input type="submit" name="sofia" id="sofia" value="SOFIA">
                 <input type="submit" name="wilson" id="wilson" value="WILSON">
