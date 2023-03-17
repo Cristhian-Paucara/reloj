@@ -1,5 +1,5 @@
 <?php
-    require("conex.php");
+    include("conex.php");
     include("reloj.php")
     
 ?>
