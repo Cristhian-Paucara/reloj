@@ -35,31 +35,39 @@
                 <input type="submit" name="carla" id="carla" value="CARLA">
                 <input type="submit" name="cristhian" id="cristhian" value="CRISTHIAN">
         </div>
+    
+        <div class="tabla">
+            <div class="tb-title">Datos de Ingreso 
+                <input type="date" name="filtro" id="filtrofecha">
+                <input type="submit" name='b_fecha' value="buscar">
+            </div>
+            <div class="tb-header">Numero</div>
+            <div class="tb-header">Nombre</div>
+            <div class="tb-header">Tipo Reg.</div>
+            <div class="tb-header">Fecha</div>
+            <div class="tb-header">Hora</div>
+            <div class="tb-header">Justificacion</div>
+            <?php 
+            $select = "select ROW_NUMBER () over () as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
+            b.tipo,b.fecha,b.hora,b.justificativo from registros b 
+            where b.fecha = '$fecha_actual'
+            order by b.fecha desc, b.hora desc";
+            $resultado = $db->query($select);
+            while($row = $resultado->fetchArray()){
+            ?>
+            <div class="tb-item"><?php echo $row["fila"];?></div>
+            <div class="tb-item"><?php echo $row["nombre"];?></div>
+            <div class="tb-item"><?php echo $row["tipo"];?></div>
+            <div class="tb-item"><?php echo $row["fecha"];?></div>
+            <?php if($row["hora"]>strtotime("08:00:00")){?>
+                    <div class="tb-item" id="hora"><?php echo $row["hora"];?></div><?php
+                }else{?>
+                    <div class="tb-item" ><?php echo $row["hora"];?></div><?php
+                };?>
+            <div class="tb-item"><?php echo $row["justificativo"];?></div>
+            <?php }?>
+        </div>
     </form>
-    <dvi class="tabla">
-        <div class="tb-title">Datos de Ingreso</div>
-        <div class="tb-header">Numero</div>
-        <div class="tb-header">Nombre</div>
-        <div class="tb-header">Tipo Reg.</div>
-        <div class="tb-header">Fecha</div>
-        <div class="tb-header">Hora</div>
-        <div class="tb-header">Justificacion</div>
-        <?php 
-        $select = "select ROW_NUMBER () over () as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
-        b.tipo,b.fecha,b.hora,b.justificativo from registros b 
-        where b.fecha = '$fecha_actual'
-        order by b.fecha desc, b.hora desc";
-        $resultado = $db->query($select);
-        while($row = $resultado->fetchArray()){
-        ?>
-        <div class="tb-item"><?php echo $row["fila"];?></div>
-        <div class="tb-item"><?php echo $row["nombre"];?></div>
-        <div class="tb-item"><?php echo $row["tipo"];?></div>
-        <div class="tb-item"><?php echo $row["fecha"];?></div>
-        <div class="tb-item"><?php echo $row["hora"];?></div>
-        <div class="tb-item"><?php echo $row["justificativo"];?></div>
-        <?php }?>
-    </dvi>
     <div id="popup" style="display: none;">
             <h1>MENSAJE</h1>
         </div>

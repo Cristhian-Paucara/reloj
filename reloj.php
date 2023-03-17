@@ -4,7 +4,13 @@
     $hora_actual = date("H:i:s",time());
     $fecha_actual = date("Y-m-d");
     $justificacion = $_POST["justifi"];
-    echo '<div class="tb-item" style="color: white;">'.$fecha_actual.'</div>';
+    $filtroFecha = $_POST["filtro"];
+    
+    if($_POST["b_fecha"]){
+        echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
+    };
+
+    
     if(isset($_POST["cristhian"])){
         $insert = "insert into registros (id,tipo,fecha,justificativo,afavor,hora) values (582427,'ENTRADA', DATE('now'), '$justificacion', 0, '$hora_actual')";
         $db->exec($insert);//insertar datos a base de datos
