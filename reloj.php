@@ -4,13 +4,12 @@
     $hora_actual = date("H:i:s",time());
     $fecha_actual = date("Y-m-d");
     $justificacion = isset($_POST["justifi"]);
-    // $filtroFecha;
-    // $filtroFecha = strtotime($_POST["filtro"]);
-    // echo $filtroFecha;
-    // if($filtroFecha){
-    //     echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
-    //     //header('Location: ./');
-    // };
+    $filtroFecha = strtotime($_POST["filtro"]);
+    echo $filtroFecha;
+    if($filtroFecha){
+        echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
+        //header('Location: ./');
+    };
 
     
     if(isset($_POST["cristhian"])){
