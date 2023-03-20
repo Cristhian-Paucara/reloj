@@ -38,8 +38,8 @@
     
         <div class="tabla">
             <div class="tb-title">Datos de Ingreso 
-                <input type="date" name="filtro" id="filtrofecha">
-                <input type="submit" name='b_fecha' value="buscar">
+                <input type="date" name="filtro" id="filtrofecha" value="17-03-2023">
+                <input type="submit" name="b_fecha" value="buscar">
             </div>
             <div class="tb-header">Numero</div>
             <div class="tb-header">Nombre</div>
@@ -59,7 +59,7 @@
             <div class="tb-item"><?php echo $row["nombre"];?></div>
             <div class="tb-item"><?php echo $row["tipo"];?></div>
             <div class="tb-item"><?php echo $row["fecha"];?></div>
-            <?php if($row["hora"]>strtotime("08:00:00")){?>
+            <?php if(strtotime($row["hora"]) > strtotime("08:05:59")){?>
                     <div class="tb-item" id="hora"><?php echo $row["hora"];?></div><?php
                 }else{?>
                     <div class="tb-item" ><?php echo $row["hora"];?></div><?php
