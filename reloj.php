@@ -3,7 +3,7 @@
     date_default_timezone_set('America/Manaus'); //define la zona horaria
     $hora_actual = date("H:i:s",time());
     $fecha_actual = date("Y-m-d");
-    $justificacion = isset($_POST["justifi"]);
+    $justificacion = $_POST["justifi"];
     $filtroFecha = strtotime($_POST["filtro"]);
     echo $filtroFecha;
     if($filtroFecha){

@@ -38,8 +38,8 @@
     
         <div class="tabla">
             <div class="tb-title">Datos de Ingreso 
-                <input type="date" name="filtro" id="filtrofecha" value="17-03-2023">
-                <input type="submit" name="b_fecha" value="buscar">
+                <input type="date" name="filtro" id="filtrofecha" value="<?php echo date('Y-m-d')?>">
+                <input type="submit" name="b_fecha" value="Buscar" id="btnbuscar">
             </div>
             <div class="tb-header">Numero</div>
             <div class="tb-header">Nombre</div>
