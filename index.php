@@ -38,7 +38,7 @@
     
         <div class="tabla">
             <div class="tb-title">Datos de Ingreso 
-                <input type="date" name="filtro" id="filtrofecha" value="<?php echo date('Y-m-d')?>">
+                <input type="date" name="filtro" id="filtrofecha" value="<?php echo $filtroFecha?>">
                 <input type="submit" name="b_fecha" value="Buscar" id="btnbuscar">
             </div>
             <div class="tb-header">Numero</div>
@@ -50,7 +50,7 @@
             <?php 
             $select = "select ROW_NUMBER () over () as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
             b.tipo,b.fecha,b.hora,b.justificativo from registros b 
-            where b.fecha = '$fecha_actual'
+            where b.fecha = '$filtroFecha'
             order by b.fecha desc, b.hora desc";
             $resultado = $db->query($select);
             while($row = $resultado->fetchArray()){

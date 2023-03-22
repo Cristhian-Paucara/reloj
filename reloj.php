@@ -1,15 +1,23 @@
 
 <?php
+    //error_reporting(0);
     date_default_timezone_set('America/Manaus'); //define la zona horaria
     $hora_actual = date("H:i:s",time());
     $fecha_actual = date("Y-m-d");
-    $justificacion = $_POST["justifi"];
-    $filtroFecha = strtotime($_POST["filtro"]);
-    echo $filtroFecha;
-    if($filtroFecha){
+    if(isset($_POST["justifi"])){
+        $justificacion = $_POST["justifi"];
+    };
+    if(isset($_POST["filtro"])){
+        $filtroFecha = $_POST["filtro"];
+        echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
+    }else{
+        $filtroFecha = $fecha_actual;
+        echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
+    };
+    /*if($filtroFecha){
         echo '<script language="javascript">console.log('.$filtroFecha.');</script>';
         //header('Location: ./');
-    };
+    };*/
 
     
     if(isset($_POST["cristhian"])){
