@@ -16,26 +16,59 @@
 </head>
 <body>
     <form action="" method="post">
-        <div class="reloj">
-            <p class="dia" id="dia">--</p>
-            <p class="mes" id="mes">--</p>
-            <div class="hora" id="hora">
-                <p>00</p>
-                <p>00</p>
-                <p>00</p>
+        <div class="cont_principal">
+            <div class="cont_registro">
+                <div class="reloj">
+                    <p class="dia" id="dia">--</p>
+                    <p class="mes" id="mes">--</p>
+                    <div class="hora" id="hora">
+                        <p>00</p>
+                        <p>00</p>
+                        <p>00</p>
+                    </div>
+                    <input type="text" name="justifi" placeholder = "Justificacion">
+                </div>
+                <div class="boton">
+                    <input type="submit" name="sofia" id="sofia" value="SOFIA">
+                    <input type="submit" name="wilson" id="wilson" value="WILSON">
+                    <input type="submit" name="freddy" id="freddy" value="FREDDY">
+                    <input type="submit" name="edwin" id="edwin" value="EDWIN">
+                    <input type="submit" name="carla" id="carla" value="CARLA">
+                    <input type="submit" name="cristhian" id="cristhian" value="CRISTHIAN">
+                </div>
             </div>
-            <input type="text" name="justifi" placeholder = "Justificacion">
+            <div class="general">
+                <div class="detalle_total">
+                    <div class="det_titulo">
+                        <h2>Detalle General</h2>
+                    </div>
+                    <div class="subtitulos">
+                        <p>NOMBRE</p>
+                        <p>ATRASOS</p>
+                        <p>A FAVOR</p>
+                        <p>T. DEUDA</p>
+                    </div>
+                    <div class="informacion">
+                        <?php 
+                            $select2 = "select (select a.nombre from funcionarios a where a.id=b.id) as nombre,
+                            (select count(*) from registros where hora > '08:05:59' and id = b.id and justificativo = '') as total,
+                            (select count(*) from registros where afavor <> 0 and id = b.id) as afavor,
+                            ((select count(*) from registros where hora > '08:05:59' and id = b.id and justificativo = '')*5) as t_general
+                            from registros b 
+                            where b.fecha = '$filtroFecha'
+                            order by b.fecha desc, b.hora desc";
+                            $resultado2 = $db->query($select2);
+                            while($row2 = $resultado2->fetchArray()){
+                        ?>
+                            <div class="td_nombre"><?php echo $row2["nombre"];?></div>
+                            <div class="td_nombre"><?php echo $row2["total"];?></div>
+                            <div class="td_nombre"><?php echo $row2["afavor"];?></div>
+                            <div class="td_nombre"><?php echo $row2["t_general"];?></div>
+                        <?php }?>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-        <div class="boton">
-                <input type="submit" name="sofia" id="sofia" value="SOFIA">
-                <input type="submit" name="wilson" id="wilson" value="WILSON">
-                <input type="submit" name="freddy" id="freddy" value="FREDDY">
-                <input type="submit" name="edwin" id="edwin" value="EDWIN">
-                <input type="submit" name="carla" id="carla" value="CARLA">
-                <input type="submit" name="cristhian" id="cristhian" value="CRISTHIAN">
-        </div>
-    
         <div class="tabla">
             <div class="tb-title">Datos de Ingreso 
                 <input type="date" name="filtro" id="filtrofecha" value="<?php echo $filtroFecha?>">
@@ -48,7 +81,7 @@
             <div class="tb-header">Hora</div>
             <div class="tb-header">Justificacion</div>
             <?php 
-            $select = "select ROW_NUMBER () over () as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
+            $select = "select ROW_NUMBER () over (ORDER BY b.hora asc) as fila,(select a.nombre from funcionarios a where a.id=b.id) as nombre,
             b.tipo,b.fecha,b.hora,b.justificativo from registros b 
             where b.fecha = '$filtroFecha'
             order by b.fecha desc, b.hora desc";
