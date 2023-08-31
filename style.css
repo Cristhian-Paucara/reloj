@@ -1,3 +1,9 @@
+:root{
+    --color1:#202833;
+    --color2:#00AABD;
+    --color3:#ffffff;
+    --color4:rgba(31, 31, 31, 0.3);
+}
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +11,7 @@
 }
 
 body{
-    background-color: #240b36;
+    background-color: var(--color1);
 }
 .cont_principal{
     display: grid;
@@ -13,17 +19,20 @@ body{
 }
 .reloj{
     width: 400px;
-    background: linear-gradient(to right,#240b36,#c31432);
-    color: #ffffff;
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    /* background: var(--color1); */
+    color: var(--color3);
     text-align: center;
     padding: 30px;
     margin: 20px auto;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     user-select: none;
-    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 10px 5px var(--color2);
+    
 }
 .reloj .dia{
     font-size: 20px;
+    filter: none;
 }
 .reloj .mes{
     font-size: 40px;
@@ -31,25 +40,40 @@ body{
 .reloj .hora{
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 15px;
+    color: var(--color2);
 }
 .reloj .hora p{
     font-size: 50px;
-    background-color: #240b36;
+    background-color: var(--color1);
     padding: 10px;
     margin: 0px 5px;
-    border: 1px solid #ffffff;
+    /* border: 1px 0 0 0 solid var(--color3); */
+    border-bottom: 1px solid var(--color3);
+}
+.reloj .hora .separador{
+    border-bottom: none;
+    color: var(--color3);
 }
 .reloj input{
-    color: #ffffff;
+    color: var(--color2);
     margin-top: 30px;
     font-size: 15px;
-    background-color: #240b36;
+    background-color: transparent;
     padding: 10px;
     margin: 0px 5px;
-    border: 1px solid #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* border: 1px solid var(--color3); */
+    border: none;
+    border-bottom: 1px solid var(--color3);
 }
+.reloj input:focus{
+    outline: none;
+}
+
 /*---estilo de botones*/
 .boton{
     width: 400px;
@@ -60,47 +84,55 @@ body{
 }
 .boton input{
     font-size: 15px;
-    background: linear-gradient(to right,#240b36,#c31432);
-    color: #ffffff;
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    background: var(--color1);
+    border-color: var(--color2);
+    color: var(--color3);
     font-weight: bold;
     text-align: center;
     padding: 12px 5px;
-    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px var(--color2);
+    /* border-radius: 10px; */
 }
-.tabla .tb-title #btnbuscar{
+
+#btnbuscar{
     width: 100px;
     height: 30px;
     font-size: 18px;
-    background: linear-gradient(to right,#240b36,#c31432);
-    color: #ffffff;
+    /* background: radial-gradient(circle,var(--color1),var(--color2)); */
+    background: var(--color2);
+    border-color: var(--color2);
+    color: var(--color3);
     font-weight: bold;
     text-align: center;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px var(--color4);
 }
 
 /*DIEÑO TABLA*/
 .tabla{
     width: 90%;
-    background: linear-gradient(to right,#240b36,#c31432);
-    /* background: crimson; */
-    color: #ffffff;
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    /* background: var(--color2); */
+    color: var(--color3);
     margin: 50px auto;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-auto-rows: 50px;
-    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 10px 5px var(--color2);
 }
 .tb-title{
     grid-column-start: 1;
     grid-column-end: 7;
-    background: linear-gradient(to right,#240b36,#c31432);
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    /* background: var(--color2); */
+    color: var(--color2);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.9em;
+    font-size: 2em;
 }
 .tb-header, .tb-item{
     display: flex;
@@ -110,24 +142,25 @@ body{
 .tb-header{
     font-weight: bold;
     font-size: 1.2em;
+    color: var(--color2);
 }
 .tb-item{
     padding: 10px;
     font-size: 1.2em;
 }
 .tabla #hora{
+    /* background-color: rgba(255, 255, 255, 0.3); */
     border-radius: 10px;
     border-style: solid;
-    border-color:  rgba(156, 31, 194, 0.3);
-    border-width: 4px;
-    color: gold;
-    
+    border-color:  var(--color2);
+    border-width: 1px;
+    color: rgb(255, 241, 51);
 }
 .tabla .tb-title #filtrofecha{
     height: 30px;
-    color: #ffffff;
+    color: var(--color2);
     font-size: 14px;
-    background-color: #240b36;
+    background-color: var(--color1);
     margin: 0 5px 0 15px;
     border: none;
     text-align: center;
@@ -136,24 +169,27 @@ body{
     cursor: pointer;
     border-radius: 4px;
     margin-right: 2px;
-    opacity: 0.9;
-    filter: invert(0.9);
+    /* opacity: 0.9; */
+    filter: invert(0.9);/*este atributo es para invertir color de icono de negro a blanco*/ 
+    color: var(--color2);
 }
 /*DETALLE TOTAL*/
 .general{
-    width: 400px;
-    background: linear-gradient(to right,#240b36,#c31432);
-    color: #ffffff;
+    width: 600px;
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    /* background: var(--color2); */
+    color: var(--color3);
     text-align: center;
     margin: 20px auto;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     user-select: none;
-    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 10px 5px var(--color2);
 }
 .det_titulo{
     grid-column-start: 1;
     grid-column-end: 5;
-    background: linear-gradient(to right,#240b36,#c31432);
+    /* background: linear-gradient(to right,var(--color1),var(--color2)); */
+    /* background: var(--color2); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,23 +199,25 @@ body{
     margin-bottom: 25px;
 }
 .subtitulos{
-    width: 400px;
+    width: 600px;
     margin: 10px auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 5px 5px;
 }
 .informacion{
-    width: 400px;
+    width: 600px;
     margin: 5px auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 5px 5px;
 }
-.col-inf{
+.td_nombre{
     font-size: 1em;
     text-align: left;
-}
-.td_nombre{
     padding: 7.5px 0 7.5px 10px;
+}
+.td_dato{
+    text-align: center;
+    padding-top: 7.5px;
 }

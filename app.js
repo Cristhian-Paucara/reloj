@@ -13,8 +13,8 @@ setInterval(() => { //ejecutar fecha cada segundo
     document.getElementById('dia').innerHTML = dia;
     document.getElementById('mes').innerHTML = `${diaN} ${mes}`;
     document.querySelector('#hora p:nth-child(1)').innerHTML = horas;
-    document.querySelector('#hora p:nth-child(2)').innerHTML = minutos;
-    document.querySelector('#hora p:nth-child(3)').innerHTML = segundos;
+    document.querySelector('#hora p:nth-child(3)').innerHTML = minutos;
+    document.querySelector('#hora p:nth-child(5)').innerHTML = segundos;
 },100)
 
 
