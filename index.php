@@ -101,8 +101,10 @@
                 where b.fecha = '$filtroFecha' 
                 order by b.fecha desc, b.hora desc";
                 $resultado = $db->query($select);
-                $num_registros = 8;
-                // echo "<script>console.log('$num_registros');</script>";
+                //$num_registros = 8;
+                $select3 = $db->query("select count(*) from registros where fecha = '$filtroFecha'");
+                $result = $select3->fetchArray();
+                $num_registros = $result[0] + 1;
                 while($row = $resultado->fetchArray()){
                     $num_registros--;
                     // echo "<script>console.log('$num_registros');</script>";
@@ -139,7 +141,7 @@
             <div class="tb-item"><?php echo $row["justificativo"];?></div>
             <?php
                 }
-                echo "<script>console.log('$num_registros');</script>";
+                //echo "<script>console.log('$num_registros');</script>";
             ?>
         </div>
     </form>
